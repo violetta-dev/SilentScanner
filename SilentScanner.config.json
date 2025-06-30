@@ -1,0 +1,19 @@
+{
+    "settings": {
+        "monitoredNames": [
+            "Viola",
+            "Vix",
+            "Violetta"
+        ],
+        "nameColors": {},
+        "enableGhostPing": true,
+        "enableNameScan": true,
+        "dmAlerts": true,
+        "channelWhitelist": [],
+        "channelBlacklist": [],
+        "guildWhitelist": [],
+        "guildBlacklist": [],
+        "ignoreBots": true,
+        "ignoreRoleIds": []
+    }
+}
