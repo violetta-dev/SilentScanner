@@ -234,12 +234,12 @@ function showCustomToast(message, color, branding=PLUGIN_BRANDING) {
   }
 
   function isWhitelisted(channelId, guildId) {
-    if (settings.channelWhitelist.length > 0 && !settings.channelWhitelist.includes(channelId)) return false;
-    if (settings.guildWhitelist.length > 0 && !settings.guildWhitelist.includes(guildId)) return false;
-    if (settings.channelBlacklist.includes(channelId)) return false;
-    if (settings.guildBlacklist.includes(guildId)) return false;
+    if (Array.isArray(settings.channelWhitelist) && settings.channelWhitelist.length > 0 && !settings.channelWhitelist.includes(channelId)) return false;
+    if (Array.isArray(settings.guildWhitelist) && settings.guildWhitelist.length > 0 && !settings.guildWhitelist.includes(guildId)) return false;
+    if (Array.isArray(settings.channelBlacklist) && settings.channelBlacklist.includes(channelId)) return false;
+    if (Array.isArray(settings.guildBlacklist) && settings.guildBlacklist.includes(guildId)) return false;
     return true;
-  }
+}
 
   // INPUT COLOR per ogni alert
   function colorInput(label, key, def) {
