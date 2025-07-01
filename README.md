@@ -18,7 +18,7 @@ Featuring custom toast notifications with frosted glass effects, smooth animatio
 
 ## Installation
 
-1. Download the SilentScanner.VixEdition.plugin.js  
+1. Download the SIlentScanner.plugin.js  
 2. Open BetterDiscord and go to **Plugins**  
 3. Click **Open Plugins Folder** and paste the downloaded file  
 4. Return to BetterDiscord and enable the plugin  
