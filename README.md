@@ -20,7 +20,7 @@
 
 ## ⚡ **Installazione**
 
-1. Scarica l’ultima versione di `SIlentScanner.plugin.js` da [qui](link-al-plugin-raw).
+1. Scarica l’ultima versione di `SIlentScanner.plugin.js` da [qui](https://github.com/violetta-dev/SilentScanner/blob/main/SIlentScanner.plugin.js).
 2. Copia il file nella cartella plugin di BetterDiscord:
    - Windows: `%appdata%\\BetterDiscord\\plugins\\`
    - Mac: `~/Library/BetterDiscord/plugins/`
@@ -74,9 +74,9 @@ Qui puoi:
 ## ❓ **FAQ**
 
 - **Il plugin è sicuro?**
-  - Sì, nessun dato viene inviato fuori dal tuo PC.
+  - Sì, nessun dato viene inviato fuori dal tuo PC. Tutto ciò che vedi è direttamente comunicato dai server di Discord al Client
 - **Posso cambiare il logo?**
-  - Solo per uso privato (vedi settings).
+  - No.
 - **Problemi/bug?**
   - Contattami su Discord.
 
