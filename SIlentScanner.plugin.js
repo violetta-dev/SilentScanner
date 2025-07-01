@@ -1,9 +1,10 @@
 /**
  * @name SilentScanner
- * @version 2.3.0
- * @description Notifica ghost ping (toast arancione), nomine (toast azzurro), DM (toast verde). UI semplice, robusto, fail-safe. Developed by Vix.
- * @author Vix (Viola/Nicola, idea by te)
+ * @author Vix (Viola/Nicola)
+ * @version 2.3.1
+ * @description Notifica ghost ping (toast arancione), nomine (toast azzurro), DM (toast verde). UI semplice, robusto, fail-safe. Developed by Vix. Aggiornato con preset durata toast.
  * @updateUrl https://TUA-URL-PUBBLICA/SilentScanner.plugin.js
+ * @source https://TUA-URL-PUBBLICA/SilentScanner.plugin.js
  */
 
 const SilentScannerConfigKey = "SilentScanner";
@@ -18,6 +19,7 @@ const DEFAULT_SETTINGS = {
   guildBlacklist: [],
   ignoreBots: true,
   ignoreRoleIds: [],
+  toastDurationPreset: "medium" // Nuova impostazione (short|medium|long)
 };
 
 const COLOR_PALETTE = {
@@ -27,6 +29,12 @@ const COLOR_PALETTE = {
   verde: "#25d366",
   viola: "#a56eff",
   grigio: "#5c6773",
+};
+
+const TOAST_DURATIONS = {
+  short: 5000,
+  medium: 20000,
+  long: 50000
 };
 
 function getTheme() {
@@ -57,6 +65,11 @@ module.exports = (() => {
   let messageCache = new Map();
   let currentUser = null;
   let settings = BdApi.loadData(SilentScannerConfigKey, "settings") || DEFAULT_SETTINGS;
+
+  // Se manca toastDurationPreset, imposta "medium"
+  if (!settings.toastDurationPreset) {
+    settings.toastDurationPreset = "medium";
+  }
 
   function saveSettings() {
     BdApi.saveData(SilentScannerConfigKey, "settings", settings);
@@ -93,8 +106,9 @@ module.exports = (() => {
     `;
     toast.innerHTML = message;
     document.body.appendChild(toast);
-    setTimeout(() => { toast.style.opacity = "0"; }, 14800);
-    setTimeout(() => { if (toast.parentNode) toast.parentNode.removeChild(toast); }, 15000);
+    const duration = TOAST_DURATIONS[settings.toastDurationPreset] || 20000;
+    setTimeout(() => { toast.style.opacity = "0"; }, duration - 200);
+    setTimeout(() => { if (toast.parentNode) toast.parentNode.removeChild(toast); }, duration);
   }
 
   function timeNow() {
@@ -148,7 +162,7 @@ module.exports = (() => {
   return class SilentScanner {
     getName() { return "SilentScanner"; }
     getDescription() { return "Notifica ghost ping (arancione), nomine (azzurro), DM (verde). Developed by Vix."; }
-    getVersion() { return "2.3.0"; }
+    getVersion() { return "2.3.1"; }
     getAuthor() { return "Vix"; }
 
     start() {
@@ -246,7 +260,33 @@ module.exports = (() => {
       panel.style.lineHeight = "1.6";
       panel.innerHTML = `<h2 style="margin-bottom:12px;">SilentScanner &ndash; Opzioni avanzate</h2>`;
 
-      // Blocchi UI
+      // --- IMPOSTAZIONE PRESET DURATA TOAST ---
+      const toastBlock = document.createElement("div");
+      toastBlock.style.margin = "14px 0 18px 0";
+      toastBlock.innerHTML = `<b>Durata notifiche toast:</b>`;
+      const select = document.createElement("select");
+      select.style.marginLeft = "10px";
+      select.style.fontSize = "15px";
+      select.style.borderRadius = "8px";
+      select.style.padding = "4px 9px";
+      [
+        { value: "short", label: "Short (5s)" },
+        { value: "medium", label: "Medium (20s)" },
+        { value: "long", label: "Long (50s)" }
+      ].forEach(opt => {
+        const o = document.createElement("option");
+        o.value = opt.value;
+        o.text = opt.label;
+        if (settings.toastDurationPreset === opt.value) o.selected = true;
+        select.appendChild(o);
+      });
+      select.onchange = (e) => {
+        settings.toastDurationPreset = e.target.value;
+        saveSettings();
+      };
+      toastBlock.appendChild(select);
+
+      // Blocchi UI standard (come prima)
       const nameBlock = document.createElement("div");
       nameBlock.style.marginBottom = "16px";
       nameBlock.innerHTML = `<b>Nomi/categorie da monitorare (uno per riga):</b>`;
@@ -357,6 +397,8 @@ module.exports = (() => {
       footer.style = "margin-top:28px;font-size:13px;color:#888;text-align:right;font-style:italic;opacity:0.8;";
       footer.innerHTML = "Developed by Vix";
 
+      // Ordine finale
+      panel.appendChild(toastBlock);
       panel.appendChild(nameBlock);
       panel.appendChild(fnBlock);
       panel.appendChild(wlBlock);
