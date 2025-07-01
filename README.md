@@ -1,89 +1,45 @@
-# SilentScanner – Vix Edition
+Description
+SilentScanner is an innovative BetterDiscord plugin that provides advanced notifications for ghost pings, mentions, and direct messages (DMs).
+Featuring custom toast notifications with frosted glass effects, smooth animations, subtle branding, and advanced settings, it enhances your Discord experience without compromising privacy.
 
-> **Notifica ghost ping, nomine, DM – Branding, palette colori, loader animato, toast personalizzabili.**
->  
-> **Il plugin “definitivo” per chi vuole il massimo della discrezione e del controllo su Discord.**
+Key Features
+Detects ghost pings with personalized toast alerts
+Monitors customizable keywords or names mentioned
+Toast notifications for new DMs with branding and animations
+Semi-transparent frosted glass effect and modern design
+Close button (“×”) to manually dismiss toasts
+Customizable color palettes and presets
+Whitelist and blacklist support for channels and servers
+Option to ignore messages from bots or specific roles
+Configurable notification durations (short, medium, long)
+Integrated test toast buttons to preview alerts
 
----
+Installation
+Download the SilentScanner.VixEdition.plugin.js
+Open BetterDiscord and go to Plugins
+Click Open Plugins Folder and paste the downloaded file
+Return to BetterDiscord and enable the plugin
+Customize settings via the plugin’s configuration panel
 
-## 🚀 **Funzionalità principali**
-- **Notifica toast per ghost ping** (messaggi eliminati dopo menzione)
-- **Notifica toast per parole chiave/nomine**
-- **Alert per DM**
-- **Branding e logo custom (powered by Vix)**
-- **Scelta colori toast per ogni tipo di alert (con preset)**
-- **Loader/badge all’avvio**
-- **Firma personalizzata mini nei toast**
-- **Interfaccia pulita e responsive**
+Configuration
+Add names or keywords to monitor
+Set channel and server whitelists/blacklists
+Customize notification colors and durations
+Enable/disable ghost ping, mention, and DM alerts
+Ignore messages from bots or specific roles to reduce false positives
 
----
+Disclaimer
+This plugin is provided “as is” and designed to enhance user experience on BetterDiscord.
+Use it at your own risk.
+No personal data is collected, and the plugin respects Discord’s and BetterDiscord’s policies.
+For issues or suggestions, please open an issue on GitHub.
 
-## ⚡ **Installazione**
+Changelog
+v2.4.0 (2025-07-01)
+Added semi-transparent frosted glass effect preserving custom colors
+Fixed toast positioning to bottom-right using !important CSS
+Added close (“×”) button for manual toast dismissal
+Improved slide-in and fade-out animations
+Standardized toast height and width for visual consistency
+Added hover effect for interactive transparency
 
-1. Scarica l’ultima versione di `SIlentScanner.plugin.js` da [qui](https://github.com/violetta-dev/SilentScanner/blob/main/SIlentScanner.plugin.js).
-2. Copia il file nella cartella plugin di BetterDiscord:
-   - Windows: `%appdata%\\BetterDiscord\\plugins\\`
-   - Mac: `~/Library/BetterDiscord/plugins/`
-3. Riavvia Discord o ricarica i plugin (`Ctrl+R`).
-
----
-
-## 🛠️ **Configurazione**
-
-Apri il pannello plugin di BetterDiscord → **SilentScanner – Vix Edition**  
-Qui puoi:
-- Scegliere **durata e colore** dei toast (preset o custom)
-- Personalizzare parole chiave/nomi monitorati
-- Gestire whitelist/blacklist canali/server
-- Attivare/disattivare notifiche ghost ping, nomina, DM
-- Scegliere il tema grafico (se disponibile)
-- Visualizzare il branding e la versione
-
----
-
-## 🎨 **Colori & Branding**
-
-- Ogni tipo di alert può avere un colore **custom** (scegli con il color picker)
-- Sono disponibili **preset rapidi**: Classic, Neon, Dark…
-- Tutti i toast includono **logo** e firma **Powered by Vix**
-
----
-
-## 🏆 **Changelog**
-- v2.4.0 – Custom branding, logo nei toast, color picker e preset palette, loader animato, firma mini nei toast
-- v2.3.1 – Introdotta durata toast (short/medium/long)
-- v2.2.x – Bugfix vari
-- … (continua con le versioni vecchie)
-
----
-
-## 📸 **Screenshot**
-
-*Non dispnibili al momento*
-
----
-
-## 👤 **Credits**
-
-- **Ideazione e sviluppo:** Vix
-- Logo originale by JNS Shop
-- Feedback e testing: Vix e discord users
-
----
-
-## ❓ **FAQ**
-
-- **Il plugin è sicuro?**
-  - Sì, nessun dato viene inviato fuori dal tuo PC. Tutto ciò che vedi è direttamente comunicato dai server di Discord al Client
-- **Posso cambiare il logo?**
-  - No.
-- **Problemi/bug?**
-  - Contattami su Discord.
-
----
-
-## 📜 **Licenza**
-
-[MIT]
-
----
