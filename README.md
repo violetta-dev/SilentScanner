@@ -1,4 +1,5 @@
 Description
+
 SilentScanner is an innovative BetterDiscord plugin that provides advanced notifications for ghost pings, mentions, and direct messages (DMs).
 Featuring custom toast notifications with frosted glass effects, smooth animations, subtle branding, and advanced settings, it enhances your Discord experience without compromising privacy.
 
